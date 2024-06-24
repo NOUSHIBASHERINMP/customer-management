@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
-use Yajra\DataTables\DataTables;
 
 class CustomerController extends Controller
 {
@@ -65,6 +64,11 @@ class CustomerController extends Controller
         $customer->update($request->all());
 
         return redirect()->route('customers.index')->with('success', 'Customer updated successfully.');
+    }
+    public function show(string $id)
+    {
+        $customer = Customer::find($id);
+        return view('customers.show', compact('customer'));
     }
 
     public function destroy(string $id)

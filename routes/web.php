@@ -15,6 +15,6 @@ use App\Http\Controllers\CustomerController;
 |
 */
 
-
+Route::get('/', [CustomerController::class, 'index'])->name('customers.index');
 Route::resource('customers', CustomerController::class);
 Route::get('search-customers', [CustomerController::class, 'search'])->name('customers.search');

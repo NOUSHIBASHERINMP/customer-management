@@ -56,6 +56,7 @@
 <td>{{$customer->status == 1 ? 'Enabled' : 'Disabled'}} </td>
 <td>{{$customer->company}}</td>
 <td>
+<a href="{{ route('customers.show', $customer->id) }}" class="btn btn-info">Show</a>
    <a  href="{{route('customers.edit',$customer->id)}}" class="btn btn-warning">edit</a>
    <form action="{{ route('customers.destroy', $customer->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this customer?');" style="display:inline;">
     @csrf
@@ -68,7 +69,6 @@
             @endforeach
         </tbody>
     </table>
-    {!! $customers->links() !!}
 </div>
 @endsection
 
