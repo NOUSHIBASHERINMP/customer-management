@@ -22,7 +22,7 @@ class CustomerController extends Controller
         }
 
         return view('customers.index', compact('customers'))
-            ->with('i', (request()->input('page', 1) - 1) * 10);
+            ->with('i', 0);
 }
     public function create()
     {
