@@ -16,7 +16,7 @@ class CustomerController extends Controller
             $query->where('name', 'like', '%' . $searchTerm . '%');
         }
 
-        $customers = $query-> orderBy('id','DESC') ->paginate(10);
+        $customers = $query-> orderBy('id','DESC') ->get();
         if ($customers->isEmpty()) {
             return redirect()->route('customers.index')->with('error', 'No results found for the search term: ' . $searchTerm);
         }
